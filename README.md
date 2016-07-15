@@ -7,7 +7,7 @@
 
 2、docker
    用法参见：http://zone.wooyun.org/content/27335 后续会继续尝试实现新功能
-   现在的bug: docker低版本支持不好
+   现在的bug: docker低版本支持不好C
 
 3、反向shell
    hacker.py模拟nc在本地监听一个端口
@@ -16,4 +16,7 @@
 
    
 待续...
-   
+
+
+参考：
+https://github.com/averagesecurityguy/scripts   

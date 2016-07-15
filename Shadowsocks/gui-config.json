@@ -1,0 +1,34 @@
+{
+"configs" : [
+  {
+"server" : "US1.ISS.TF",
+"server_port" : 443,
+"password" : "83361466",
+"method" : "aes-256-cfb",
+"remarks" : "A服务器地址"}
+,
+  {
+"server" : "HK2.ISS.TF",
+"server_port" : 8989,
+"password" : "50601230",
+"method" : "aes-256-cfb",
+"remarks" : "B服务器"}
+,
+  {
+"server" : "JP3.ISS.TF",
+"server_port" : 443,
+"password" : "41056178",
+"method" : "aes-256-cfb",
+"remarks" : "C服务器"}
+
+],
+"strategy" : null,
+"index" : 2,
+"global" : true,
+"enabled" : true,
+"shareOverLan" : false,
+"isDefault" : false,
+"localPort" : 1080,
+"pacUrl" : null,
+"useOnlinePac" : false,
+"availabilityStatistics" : false}
