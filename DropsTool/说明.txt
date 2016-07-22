@@ -1,0 +1,11 @@
+ÓÃ·¨£º
+usage: DropsFix.py [-h] [-p P] [-n N]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -p P        the html path.
+  -n N        the thread number.Default:10
+
+Àý×Ó£º
+python DropsFix.py -p "D:\\drops_html°æ" -n 20 
+
