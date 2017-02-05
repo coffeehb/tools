@@ -26,7 +26,7 @@ def save_mysql():
     while True:
 
         try:
-            conn = mysql.connect(user='root', passwd='y2k_10516', host='127.0.0.1', db='dnslogsDB')
+            conn = mysql.connect(user='root', passwd='yourpassword', host='127.0.0.1', db='dnslogsDB')
             cur = conn.cursor()
         except mysql.Error, e:
             print '\033[91m' + '\033[1m' + '[+].... Login mysql failed,check your config ....[+]' + '\033[0m'
