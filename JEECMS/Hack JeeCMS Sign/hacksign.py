@@ -30,7 +30,6 @@ class BurpExtender(IBurpExtender, IHttpListener):
 
             o,n = self.update_sign(urllib.unquote(self.body))
             self.body = self.body.replace(o,n)
-            print self.body
             newMessage = self._helpers.buildHttpMessage(self.headers, self.body)
             currentRequest.setRequest(newMessage)
 
@@ -42,7 +41,6 @@ class BurpExtender(IBurpExtender, IHttpListener):
         try:
             old_sign = ""
             # defalut appKey
-            #appKey = "Sd6qkHm9o4LaVluYRX5pUFyNuiu2a8oi"
             appKey = "uicxsXYso7DJxlrFdgQnVVXW5OCzU74h"
 
             hash_param = ""
@@ -65,8 +63,6 @@ class BurpExtender(IBurpExtender, IHttpListener):
 
             hash_param += "key=" + appKey
             sign = hashlib.md5(hash_param).hexdigest()
-            print "new sign = ",sign.upper()
             return old_sign,sign.upper()
         except Exception, e:
-            print e
             return "",""
