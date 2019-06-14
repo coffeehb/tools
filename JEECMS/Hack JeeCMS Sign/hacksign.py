@@ -39,16 +39,17 @@ class BurpExtender(IBurpExtender, IHttpListener):
 
     def update_sign(slef, body=""):
         try:
+            str1 = {'version','timestamp','client','channel','uid','token','settype','nickname','sex','app_name','device_name','device_system_version','mobile','mobilecode','password','passwordOld','passwordNew','uidHome','device','name','id','dynamic_id','comment_id','content','label_id','page','page_size','uid_to','type','has_dynamic','lon','lat','province','city','taskid','openid','accesstoken','loginfrom','uidReceive','num','keyword','flag','posid','uidRival','last_id','addtime','time','tribe_title',"tribe_pwd","tribe_id","tribe_flag","tribe_checktype","tribe_content","tribe_type","tribe_value","tribe_member_ids","tribe_yaoqing_uid","tribe_search_id",'idcard','payChannel','voice_id','voice_info','voice_file','voice_sec','voice_sort','sync','pid','birthday','cardId','cardIds','alipay','code','money','mark','ext',"usercard_sex","usercard_age_range",'emulator','vpn','multi_apk'}
             old_sign = ""
             # defalut appKey
-            appKey = "uicxsXYso7DJxlrFdgQnVVXW5OCzU74h"
+            appKey = "b685e42b1253a1eedcf6431fcc908ea1"
 
             hash_param = ""
             param_list = body.split("&")
 
             temp_dict = {}
             for pa in param_list:
-                t = pa.split("=")
+                t = pa.split("=",1)
                 temp_dict[t[0]] = t[1]
 
             tmmmm = temp_dict.items()
@@ -59,10 +60,12 @@ class BurpExtender(IBurpExtender, IHttpListener):
                     old_sign = v
                     print "old sign = ",v
                     continue
-                hash_param += "%s=%s&" % (k, v)
-
-            hash_param += "key=" + appKey
+                if k in str1:
+                    hash_param += "%s=%s&" % (k, v)
+            hash_param = (hash_param[:-1])
+            hash_param +=   appKey
             sign = hashlib.md5(hash_param).hexdigest()
-            return old_sign,sign.upper()
+            print "new sign = ",sign
+            return old_sign,sign
         except Exception, e:
             return "",""
