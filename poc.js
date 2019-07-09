@@ -1,3 +1,3 @@
-function a(){alert(123)}
+function a(){alert(123);}
 
 a();
