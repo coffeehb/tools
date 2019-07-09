@@ -1,4 +1,3 @@
-<script>
-alert(/found xss/);
+function a(){alert(123)}
 
-</script>
+a();
