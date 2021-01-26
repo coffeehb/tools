@@ -14,6 +14,7 @@ from difflib import SequenceMatcher
 # python fuzz_dir.py fuzz.txt http://d.xiaojukeji.com/admin/ 0 success.txt
 
 # 相似度算法，对比404页面和WAF拦截页面
+# https://thief.one/2018/04/12/1/
 seqm404 = SequenceMatcher()
 seqmWAF = SequenceMatcher()
 
