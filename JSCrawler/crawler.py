@@ -113,7 +113,7 @@ def save_jsfile(js_link):
 		path = url_raw.path
 		jsFilename = res+"_"+path[path.rindex("/") + 1:]
 		# print(js_link+"===>"+jsFilename)
-		with open("/Users/80252519/APPTest/FridaTest/ziwu-javascript-rules/testcases/"+jsFilename, "w+") as wf:
+		with open("./testcases/"+jsFilename, "w+") as wf:
 			wf.write(js_text)
 	except:
 		return
