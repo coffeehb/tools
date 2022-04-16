@@ -1,0 +1,9 @@
+记录yakit笔记
+
+1、Web Fuzzer里面使用文件，类似BUrp的paste from file
+{{file(D:\\1234.log)}}
+
+2、以文件作为字典
+如果 file 是一个字典的话也可以 {{file:line(file)}} 把文件按行拆
+3、也可以{{files(file1|file2|file3)}}
+用三个请求分别发出文件1，2，3
