@@ -1,0 +1,92 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://8.8.8.8"
+      },
+      {
+        "tag": "local",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "geosite": "cn",
+        "server": "local"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "inet4_address": "172.19.0.1/30",
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": false,
+      "auto_route": true,
+      "sniff": true,
+      "stack": "gvisor"
+
+    }
+  ],
+  "outbounds": [
+   {
+      "type": "shadowsocks",
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "OEpUMWlzc3NmUEBzU1cwcnJkaEFS",
+      "detour": "shadowtls-out",
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 4,
+        "min_streams": 4
+      },
+      "domain_strategy": "ipv4_only",
+      "detour": "shadowtls-out"
+
+    },
+    {
+      "type": "shadowtls",
+      "tag": "shadowtls-out",
+      "server": "VPS-IP",
+      "server_port": 54443,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
+      },
+      {
+        "geosite": "cn",
+        "geoip": "cn",
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true
+  }
+}
