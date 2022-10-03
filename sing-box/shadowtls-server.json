@@ -1,0 +1,21 @@
+{
+  "inbounds": [
+    {
+      "type": "shadowtls",
+      "listen": "::",
+      "listen_port": 54443,
+      "handshake": {
+        "server": "www.bing.com",
+        "server_port": 443
+      },
+      "detour": "shadowsocks-in"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "shadowsocks-in",
+      "listen": "VPS-IP",
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "OEpUMWlzc3NmUEBzU1cwcnJkaEFS"
+    }
+  ]
+}
