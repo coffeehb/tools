@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加视口设置 -->
+  <title>GetLocation</title>
+  <style>
+    #demo {
+      font-size: 14px; /* 设置字体大小 */
+      width: 100%; /* 设置元素宽度 */
+    }
+  </style>
+</head>
+<body>
+  <p id="demo">Get location</p>
+  <button onclick="getlocation()">Click the button to get location</button>
+  <script>
+    var x = document.getElementById("demo");
+    function getlocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        x.innerHTML = "该浏览器不支持定位。";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "latitude：" + position.coords.latitude + "<br>longitude:" + position.coords.longitude;
+    }
+
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          x.innerHTML = "用户禁止使用定位。";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          x.innerHTML = "位置信息不可用。";
+          break;
+        case error.TIMEOUT:
+          x.innerHTML = "请求超时。";
+          break;
+        case error.UNKNOWN_ERROR:
+          x.innerHTML = "未知错误。";
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
